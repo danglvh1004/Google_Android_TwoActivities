@@ -9,7 +9,9 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText mMessageEditText;
+    private EditText mMessageEditText;
+    public static final String EXTRA_MESSAGE =
+            "com.example.android.twoactivities.extra.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,10 +22,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchSecondActivity(View view) {
-
-        Intent intent = new Intent(MainActivity.this,
-                com.example.twoactivities.SecondActivity.class);
-
+        Intent intent = new Intent(this, SecondActivity.class);
         String message = mMessageEditText.getText().toString();
         intent.putExtra("message_send", message);
         startActivity(intent);
